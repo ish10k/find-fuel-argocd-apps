@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.findFuelMain.name }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.findFuelMain.repoUrl }}
+    targetRevision: {{ .Values.findFuelMain.targetRevision }}
+    path: {{ .Values.findFuelMain.path }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.findFuelMain.namespace }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

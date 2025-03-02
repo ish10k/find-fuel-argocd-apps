@@ -1,0 +1,16 @@
+argocd:
+  namespace: argocd
+
+findFuelMain:
+  name: find-fuel-main
+  repoUrl: https://github.com/ish10k/find-fuel-main-chart
+  targetRevision: main
+  path: .
+  namespace: find-fuel
+
+findFuelCnpgDb:
+  name: find-fuel-cnpg-db
+  repoUrl: https://github.com/ish10k/find-fuel-cnpg-db
+  targetRevision: main
+  path: .
+  namespace: find-fuel-cnpg-db

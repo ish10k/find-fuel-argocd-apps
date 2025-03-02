@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.findFuelCnpgDb.name }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.findFuelCnpgDb.repoUrl }}
+    targetRevision: {{ .Values.findFuelCnpgDb.targetRevision }}
+    path: {{ .Values.findFuelCnpgDb.path }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.findFuelCnpgDb.namespace }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
