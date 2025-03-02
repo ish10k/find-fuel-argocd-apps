@@ -9,6 +9,13 @@ spec:
     repoURL: {{ .Values.findFuelCnpgDb.repoUrl }}
     targetRevision: {{ .Values.findFuelCnpgDb.targetRevision }}
     path: {{ .Values.findFuelCnpgDb.path }}
+  namespaceResource:
+    create: true
+    manifest: |
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: {{ .Values.findFuelCnpgDb.namespace }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.findFuelCnpgDb.namespace }}

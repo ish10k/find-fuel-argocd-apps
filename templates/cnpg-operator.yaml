@@ -9,6 +9,13 @@ spec:
     repoURL: {{ .Values.cnpgOperator.repoUrl }}
     targetRevision: {{ .Values.cnpgOperator.targetRevision }}
     path: {{ .Values.cnpgOperator.path }}
+  namespaceResource:
+    create: true
+    manifest: |
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: {{ .Values.cnpgOperator.namespace }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.cnpgOperator.namespace }}

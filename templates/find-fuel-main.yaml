@@ -9,6 +9,13 @@ spec:
     repoURL: {{ .Values.findFuelMain.repoUrl }}
     targetRevision: {{ .Values.findFuelMain.targetRevision }}
     path: {{ .Values.findFuelMain.path }}
+  namespaceResource:
+    create: true
+    manifest: |
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: {{ .Values.findFuelMain.namespace }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.findFuelMain.namespace }}
