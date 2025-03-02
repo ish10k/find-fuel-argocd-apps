@@ -1,6 +1,13 @@
 argocd:
   namespace: argocd
 
+self:
+  name: find-fuel-agrocd-apps
+  repoUrl: https://github.com/ish10k/find-fuel-argocd-apps
+  targetRevision: main
+  path: .
+  namespace: argocd-apps
+
 findFuelMain:
   name: find-fuel-main
   repoUrl: https://github.com/ish10k/find-fuel-main-chart
