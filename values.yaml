@@ -14,3 +14,10 @@ findFuelCnpgDb:
   targetRevision: main
   path: .
   namespace: find-fuel-cnpg-db
+
+cnpgOperator:
+  name: cnpg-operator
+  repoUrl: https://github.com/cloudnative-pg/charts
+  targetRevision: main
+  path: charts/cloudnative-pg
+  namespace: cnpg

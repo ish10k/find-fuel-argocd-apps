@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.cnpgOperator.name }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.cnpgOperator.repoUrl }}
+    targetRevision: {{ .Values.cnpgOperator.targetRevision }}
+    path: {{ .Values.cnpgOperator.path }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.cnpgOperator.namespace }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - ServerSideApply=true
