@@ -10,7 +10,7 @@ findFuelMain:
 
 findFuelCnpgDb:
   name: find-fuel-cnpg-db
-  repoUrl: https://github.com/ish10k/find-fuel-cnpg-db
+  repoUrl: https://github.com/ish10k/find-fuel-cnpg-db-chart
   targetRevision: main
   path: .
   namespace: find-fuel-cnpg-db
