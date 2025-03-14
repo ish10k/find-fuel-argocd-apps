@@ -4,18 +4,10 @@ metadata:
   name: internet-ingress
   annotations:
     nginx.org/redirect-to-https: "false"
+    ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   rules:
-  - http:
-      paths:
-      - path: /admin/argocd
-        pathType: Prefix
-        backend:
-          service:
-            name: argocd-server
-            port:
-              number: 80
   - http:
       paths:
       - path: /admin/argocd
