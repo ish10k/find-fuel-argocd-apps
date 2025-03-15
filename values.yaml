@@ -2,11 +2,16 @@ argocd:
   namespace: argocd
 
 self:
-  name: find-fuel-agrocd-apps
+  name: argocd-apps
   repoUrl: https://github.com/ish10k/find-fuel-argocd-apps
   targetRevision: main
   path: .
   namespace: argocd-apps
+
+ingress:
+  name: argocd-ingress
+  host: argocd.findfuel.uk
+  service: argocd-service
 
 findFuelMain:
   name: find-fuel-main
@@ -16,7 +21,7 @@ findFuelMain:
   namespace: find-fuel
 
 findFuelCnpgDb:
-  name: find-fuel-cnpg-db
+  name: cnpg-db
   repoUrl: https://github.com/ish10k/find-fuel-cnpg-db-chart
   targetRevision: main
   path: .
