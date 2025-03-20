@@ -11,7 +11,7 @@ self:
 ingress:
   name: argocd-ingress
   host: argocd.findfuel.uk
-  service: argocd-service
+  service: argocd-server
 
 findFuelMain:
   name: find-fuel-main
