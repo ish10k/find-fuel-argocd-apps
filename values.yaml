@@ -33,3 +33,18 @@ cnpgOperator:
   targetRevision: main
   path: charts/cloudnative-pg
   namespace: cnpg
+
+grafanaStack:
+  name: grafana-stack
+  repoUrl: https://prometheus-community.github.io/helm-charts
+  chart: kube-prometheus-stack
+  targetRevision: main
+  adminPassword: admin
+  namespace: o11y
+
+lokiStack:
+  name: loki-stack
+  namespace: o11y
+  chart: loki-stack
+  repoUrl: https://grafana.github.io/helm-charts
+  targetRevision: main
