@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.grafanaStack.name }}
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: {{ .Values.grafanaStack.chart }}
+    repoURL: {{ .Values.grafanaStack.repoUrl }}
+    targetRevision: latest
+    helm:
+      values: |
+        grafana:
+          adminPassword: "{{ .Values.grafanaStack.adminPassword }}"
+        prometheus:
+          prometheusSpec:
+            serviceMonitorSelectorNilUsesHelmValues: false
+        alertmanager:
+          enabled: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.grafanaStack.namespace }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

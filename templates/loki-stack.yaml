@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.lokiStack.name }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  project: default
+  source:
+    chart: {{ .Values.lokiStack.chart }}
+    repoURL: {{ .Values.lokiStack.repoUrl }}
+    targetRevision: {{ .Values.lokiStack.targetRevision }}
+    helm:
+      values: |
+        loki:
+          persistence:
+            enabled: true
+        promtail:
+          enabled: true
+          config:
+            clients:
+              - url: http://loki.monitoring.svc:3100/loki/api/v1/push
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.lokiStack.namespace }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
