@@ -8,7 +8,7 @@ spec:
   source:
     chart: {{ .Values.grafanaStack.chart }}
     repoURL: {{ .Values.grafanaStack.repoUrl }}
-    targetRevision: latest
+    targetRevision: {{ .Values.grafanaStack.targetRevision }}
     helm:
       values: |
         grafana:
