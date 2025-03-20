@@ -41,6 +41,10 @@ grafanaStack:
   targetRevision: 70.1.1
   adminPassword: admin
   namespace: o11y
+  ingress:
+    name: grafana-stack-ingress
+    host: grafana.findfuel.uk
+    service: grafana-stack
 
 lokiStack:
   name: loki-stack
