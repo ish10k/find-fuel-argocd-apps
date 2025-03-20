@@ -38,7 +38,7 @@ grafanaStack:
   name: grafana-stack
   repoUrl: https://prometheus-community.github.io/helm-charts
   chart: kube-prometheus-stack
-  targetRevision: main
+  targetRevision: latest
   adminPassword: admin
   namespace: o11y
 
@@ -47,4 +47,4 @@ lokiStack:
   namespace: o11y
   chart: loki-stack
   repoUrl: https://grafana.github.io/helm-charts
-  targetRevision: main
+  targetRevision: latest
