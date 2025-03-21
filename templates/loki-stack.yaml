@@ -20,7 +20,7 @@ spec:
           enabled: true
           config:
             clients:
-              - url: http://loki.monitoring.svc:3100/loki/api/v1/push
+              - url: http://loki.o11y.svc:3100/loki/api/v1/push
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.lokiStack.namespace }}
