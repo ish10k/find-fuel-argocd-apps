@@ -23,11 +23,11 @@ spec:
               - url: http://loki-stack.o11y.svc:3100/loki/api/v1/push
             snippets:
               pipelineStages:
-                - cri: {}  # Parses Kubernetes container logs
+                - cri: {}
             scrapeConfigs:
               - job_name: kubernetes-pods
                 pipeline_stages:
-                  - cri: {}  # Parses log format
+                  - cri: {}
                 kubernetes_sd_configs:
                   - role: pod
                 relabel_configs:
