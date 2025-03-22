@@ -21,6 +21,25 @@ spec:
           config:
             clients:
               - url: http://loki.o11y.svc:3100/loki/api/v1/push
+            snippets:
+              pipelineStages:
+                - cri: {}  # Parses Kubernetes container logs
+            scrapeConfigs:
+              - job_name: kubernetes-pods
+                pipeline_stages:
+                  - cri: {}  # Parses log format
+                kubernetes_sd_configs:
+                  - role: pod
+                relabel_configs:
+                  - source_labels: [__meta_kubernetes_pod_label_app]
+                    target_label: app
+                  - source_labels: [__meta_kubernetes_namespace]
+                    target_label: namespace
+                  - source_labels: [__meta_kubernetes_pod_name]
+                    target_label: pod
+                  - source_labels: [__meta_kubernetes_pod_container_name]
+                    target_label: container
+
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.lokiStack.namespace }}
