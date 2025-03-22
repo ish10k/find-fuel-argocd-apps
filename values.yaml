@@ -46,9 +46,9 @@ grafanaStack:
     host: grafana.findfuel.uk
     service: grafana-stack
 
-lokiStack:
-  name: loki-stack
+loki:
+  name: loki
   namespace: o11y
-  chart: loki-stack
+  chart: loki
   repoUrl: https://grafana.github.io/helm-charts
   targetRevision: 2.10.2
