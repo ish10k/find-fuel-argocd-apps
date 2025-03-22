@@ -51,4 +51,4 @@ loki:
   namespace: o11y
   chart: loki
   repoUrl: https://grafana.github.io/helm-charts
-  targetRevision: 2.10.2
+  targetRevision: 6.28.0
