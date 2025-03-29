@@ -23,6 +23,12 @@ spec:
               index:
                 prefix: loki_index_
                 period: 24h
+          persistence:
+            enabled: true
+            storageClassName: "ssd"
+            accessModes:
+              - ReadWriteOnce
+            size: 10Gi
           storage:
             type: 'filesystem'
         deploymentMode: SingleBinary
