@@ -4,8 +4,8 @@ metadata:
   name: {{ .Values.cert.name }}
 spec:
   acme:
-    email: {{ .Values.cert.name }}
-    server: {{ .Values.cert.server }}
+    email: {{ .Values.cert.acme.email }}
+    server: {{ .Values.cert.acme.server }}
     privateKeySecretRef:
       name: {{ .Values.cert.name }}
     solvers:

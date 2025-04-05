@@ -15,7 +15,9 @@ ingress:
 
 cert:
   name: cert
-  server: https://acme-v02.api.letsencrypt.org/directory
+  acme:
+    email: inale02@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
   
 findFuelMain:
   name: find-fuel-main
