@@ -6,7 +6,7 @@ spec:
   acme:
     email: {{ .Values.cert.name }}
     server: {{ .Values.cert.server }}
-    privatKeySecretRef:
+    privateKeySecretRef:
       name: {{ .Values.cert.name }}
     solvers:
     - http01:
