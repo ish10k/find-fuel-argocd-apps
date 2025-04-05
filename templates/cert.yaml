@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: {{ .Values.cert.name }}
+spec:
+  acme:
+    email: {{ .Values.cert.name }}
+    server: {{ .Values.cert.server }}
+    privatKeySecretRef:
+      name: {{ .Values.cert.name }}
+    solvers:
+    - http01:
+        ingress:
+          storageClass: nginx

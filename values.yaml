@@ -13,6 +13,10 @@ ingress:
   host: argocd.findfuel.uk
   service: argocd-server
 
+cert:
+  name: cert
+  server: https://acme-v02.api.letsencrypt.org/directory
+  
 findFuelMain:
   name: find-fuel-main
   repoUrl: https://github.com/ish10k/find-fuel-main-chart
