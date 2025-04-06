@@ -24,9 +24,7 @@ certIssuer:
     email: inale02@gmail.com
     server: https://acme-v02.api.letsencrypt.org/directory
 
-certificate:
-  name: cert
-  certIssuerName: cert-issuer-prod
+  active: cert-issuer-prod
 
 certManagerOperator:
   name: cert-manager-operator
