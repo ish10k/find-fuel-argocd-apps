@@ -13,7 +13,7 @@ ingress:
   host: argocd.findfuel.uk
   service: argocd-server
 
-cert-issuer:
+certIssuer:
   staging:
     name: cert-issuer-staging
     email: inale02@gmail.com
