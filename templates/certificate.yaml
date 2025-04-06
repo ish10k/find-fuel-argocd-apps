@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ .Values.cert.name }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  secretName: {{ .Values.cert.name }}
+  issuerRef:
+    name: {{ .Values.cert.name }}
+    kind: ClusterIssuer
+  commonName: {{ .Values.ingress.host }}
+  dnsNames:
+    - {{ .Values.ingress.host }}
