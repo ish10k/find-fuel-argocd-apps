@@ -4,9 +4,9 @@ metadata:
   name: {{ .Values.cert.name }}
   namespace: {{ .Values.argocd.namespace }}
 spec:
-  secretName: {{ .Values.cert.name }}
+  secretName: {{ .Values.certificate.name }}
   issuerRef:
-    name: {{ .Values.cert.name }}
+    name: {{ .Values.certificate.certIssuerName }}
     kind: ClusterIssuer
   dnsNames:
     - {{ .Values.ingress.host }}

@@ -13,11 +13,20 @@ ingress:
   host: argocd.findfuel.uk
   service: argocd-server
 
-cert:
-  name: cert
-  acme:
+cert-issuer:
+  staging:
+    name: cert-issuer-staging
     email: inale02@gmail.com
     server: https://acme-staging-v02.api.letsencrypt.org/directory
+  
+  prod:
+    name: cert-issuer-prod
+    email: inale02@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+
+certificate:
+  name: cert
+  certIssuerName: cert-issuer-prod
 
 certManagerOperator:
   name: cert-manager-operator
