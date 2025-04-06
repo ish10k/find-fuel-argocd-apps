@@ -5,13 +5,13 @@ metadata:
   namespace: {{ .Values.argocd.namespace }}
   annotations:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    cert-manager.io/cluster-issuer: {{  .Values.cert.name }}
+    cert-manager.io/cluster-issuer: {{  .Values.certificate.name }}
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
     - {{ .Values.ingress.host }}
-    secretName: {{ .Values.cert.name }}
+    secretName: {{ .Values.certificate.name }}
   rules:
   - host: {{ .Values.ingress.host }}
     http:
