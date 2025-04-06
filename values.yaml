@@ -17,8 +17,15 @@ cert:
   name: cert
   acme:
     email: inale02@gmail.com
-    server: https://acme-v02.api.letsencrypt.org/directory
-  
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+
+certManagerOperator:
+  name: cert-manager-operator
+  repoUrl: https://charts.jetstack.io
+  targetRevision: v1.14.4
+  chart: cert-manager
+  namespace: cert-manager
+
 findFuelMain:
   name: find-fuel-main
   repoUrl: https://github.com/ish10k/find-fuel-main-chart

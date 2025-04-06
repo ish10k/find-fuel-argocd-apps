@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.certManagerOperator.name }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.certManagerOperator.repoUrl }}
+    targetRevision: {{ .Values.certManagerOperator.targetRevision }}
+    chart: {{ .Values.certManagerOperator.chart }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.certManagerOperator.namespace }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
