@@ -18,7 +18,8 @@ spec:
           schemaConfig:
             configs:
             - from: "2024-04-01"
-              store: filesystem
+              store: tsdb
+              object_store: filesystem
               schema: v13
               index:
                 prefix: loki_index_
@@ -30,10 +31,14 @@ spec:
               - ReadWriteOnce
             size: 10Gi
           storage:
-            type: 'filesystem'
+            type: filesystem
         deploymentMode: SingleBinary
         singleBinary:
           replicas: 1
+          persistence:
+            enabled: true
+            size: 10Gi
+            storageClass: ssd
         write:
           replicas: 0
         read:

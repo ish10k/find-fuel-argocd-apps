@@ -13,6 +13,26 @@ ingress:
   host: argocd.findfuel.uk
   service: argocd-server
 
+certIssuer:
+  staging:
+    name: cert-issuer-staging
+    email: inale02@gmail.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+  
+  prod:
+    name: cert-issuer-prod
+    email: inale02@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+
+  active: cert-issuer-prod
+
+certManagerOperator:
+  name: cert-manager-operator
+  repoUrl: https://charts.jetstack.io
+  targetRevision: v1.14.4
+  chart: cert-manager
+  namespace: cert-manager
+
 findFuelMain:
   name: find-fuel-main
   repoUrl: https://github.com/ish10k/find-fuel-main-chart
